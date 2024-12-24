@@ -367,6 +367,11 @@ static int bench(void) {
     sched_yield();
     */
 
+    // flush the buffer to prevent it from being copied into the child under the
+    // case where stdout is not line-buffered (e.g. executed within a sub-shell
+    // rather than directly in terminal)
+    fflush(stdout);
+
     /* fork childs */
     for (i = 0; i < clients; i++) {
         pid = fork();

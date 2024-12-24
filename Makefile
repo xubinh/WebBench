@@ -1,6 +1,6 @@
-CFLAGS?=	-Wall -ggdb -W -O
+CFLAGS?=	-Wall -ggdb -W -O -I/usr/include/tirpc
 CC?=		gcc
-LIBS?=
+LIBS?=      -ltirpc
 LDFLAGS?=
 PREFIX?=	/usr/local/webbench
 VERSION=1.5

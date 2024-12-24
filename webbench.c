@@ -76,7 +76,7 @@ static void benchcore(const char *host, const int port, const char *request);
 static int bench(void);
 static void build_request(const char *url);
 
-static void alarm_handler(int signal) { timerexpired = 1; }
+static void alarm_handler(int) { timerexpired = 1; }
 
 static void usage(void) {
     fprintf(

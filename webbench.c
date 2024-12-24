@@ -215,7 +215,7 @@ int main(int argc, char *argv[]) {
     printf("\n");
     */
 
-    printf("Runing info: ");
+    printf("Running info: ");
 
     if (clients == 1)
         printf("1 client");
@@ -437,7 +437,7 @@ static int bench(void) {
         fclose(f);
 
         printf(
-            "\nSpeed=%d pages/min, %d bytes/sec.\nRequests: %d susceed, %d "
+            "\nSpeed=%d pages/min, %d bytes/sec.\nRequests: %d succeed, %d "
             "failed.\n",
             (int)((speed + failed) / (benchtime / 60.0f)),
             (int)(bytes / (float)benchtime), speed, failed);

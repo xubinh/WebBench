@@ -416,6 +416,8 @@ static int bench(void) {
         setvbuf(f, NULL, _IONBF, 0);
 
         speed = 0;
+        int min_speed = 0x7fffffff;
+        int max_speed = 0;
         failed = 0;
         bytes = 0;
 
@@ -427,6 +429,8 @@ static int bench(void) {
             }
 
             speed += i;
+            min_speed = i < min_speed ? i : min_speed;
+            max_speed = i > max_speed ? i : max_speed;
             failed += j;
             bytes += k;
 
@@ -438,9 +442,10 @@ static int bench(void) {
 
         printf(
             "\nSpeed=%d pages/min, %d bytes/sec.\nRequests: %d succeed, %d "
-            "failed.\n",
+            "failed.\nMin succeed: %d\nMax succeed: %d\n",
             (int)((speed + failed) / (benchtime / 60.0f)),
-            (int)(bytes / (float)benchtime), speed, failed);
+            (int)(bytes / (float)benchtime), speed, failed, min_speed,
+            max_speed);
     }
 
     return i;
